@@ -25,9 +25,10 @@ int main()
 
     for(int i = 0; i < 10; i++)
     {
-		b1.checkDoodleMove(); 
-		b1.checkAntMove();
+		    b1.checkDoodleMove();
+		    b1.checkAntMove();
         b1.checkAntBreed();
+        b1.checkDoodleStarve();
         b1.advanceAge();
         b1.printBoard();
     }

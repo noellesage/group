@@ -140,4 +140,20 @@ void Board::checkAntBreed()
     }
 }
 
+void Board::checkDoodleStarve()
+{
+    for(int i = 0; i < 20; i++)
+    {
+        for(int j = 0; j < 20; j++)
+        {
+            if(grid[i][j] == nullptr)
+            {
 
+            }
+            else if(grid[i][j]->getAge() > 3)
+            {
+                grid[i][j]->starve(getGrid(), i, j);
+            }
+        }
+    }
+}

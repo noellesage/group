@@ -16,7 +16,8 @@ class Board
         Critter*** getGrid();
         void printBoard();
         void checkAntMove();
-		void checkDoodleMove();
+        void checkDoodleStarve();
+		    void checkDoodleMove();
         void advanceAge();
         void checkAntBreed();
 

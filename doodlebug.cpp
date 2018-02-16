@@ -59,7 +59,7 @@ void Doodlebug::move(Critter*** c, int row, int col)
 		if (!ateAnt) {
 
 			int starter = rand() % 4 + 1;
-      c->starve();
+      c->starve(c, row, col);
 			while (moveHistory == false)
 			{
 				if (starter == 1)
@@ -227,8 +227,5 @@ void Doodlebug::breed(Critter*** c, int row, int col)
 
 void Doodlebug::starve(Critter*** c, int row, int col)
 {
-  if(c->getAge() > 3)
-  {
-    c[row][col] = 0;
-  }
+    c[row][col] = nullptr;
 }
