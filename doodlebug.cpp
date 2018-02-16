@@ -25,7 +25,6 @@ void Doodlebug::move(Critter*** c, int row, int col)
 				c[row + 1][col - 1] = c[row][col];
 				c[row][col] = nullptr;
 				ateAnt = true;
-        num_starve = 0;
 				moveHistory = true;
 			}
 		}
@@ -35,7 +34,6 @@ void Doodlebug::move(Critter*** c, int row, int col)
 				c[row + 1][col + 1] = c[row][col];
 				c[row][col] = nullptr;
 				ateAnt = true;
-        num_starve = 0;
 				moveHistory = true;
 			}
 		}
@@ -45,7 +43,6 @@ void Doodlebug::move(Critter*** c, int row, int col)
 				c[row - 1][col + 1] = c[row][col];
 				c[row][col] = nullptr;
 				ateAnt = true;
-        num_starve = 0;
 				moveHistory = true;
 			}
 		}
@@ -55,7 +52,6 @@ void Doodlebug::move(Critter*** c, int row, int col)
 				c[row - 1][col - 1] = c[row][col];
 				c[row][col] = nullptr;
 				ateAnt = true;
-        num_starve = 0;
 				moveHistory = true;
 			}
 		}
@@ -63,7 +59,7 @@ void Doodlebug::move(Critter*** c, int row, int col)
 		if (!ateAnt) {
 
 			int starter = rand() % 4 + 1;
-      num_starve++;
+      c->starve();
 			while (moveHistory == false)
 			{
 				if (starter == 1)
@@ -135,11 +131,8 @@ void Doodlebug::move(Critter*** c, int row, int col)
 					}
 				}
 			}
-
-
 		}
 	}
-
 }
 
 void Doodlebug::breed(Critter*** c, int row, int col)
@@ -232,14 +225,10 @@ void Doodlebug::breed(Critter*** c, int row, int col)
   }
 }
 
-bool Doodlebug::starve()
+void Doodlebug::starve(Critter*** c, int row, int col)
 {
-  if(num_starve > 3)
+  if(c->getAge() > 3)
   {
-    return true;
-  }
-  else
-  {
-    return false;
+    c[row][col] = 0;
   }
 }
